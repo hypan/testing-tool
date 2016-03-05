@@ -33,6 +33,8 @@ public class test {
 
     public Integer presentCaller;
     public Integer presentCallee;
+    public Method caller = null;
+    public Method callee = null;
 
     int threSupport = 3;
     double threConfidence = 0.65;
@@ -76,9 +78,6 @@ public class test {
 
     public void saveGraph(String graphLine) {
 
-        Method caller = null;
-        Method callee = null;
-
         if (graphLine.trim().startsWith(call_gra)) {
             if (!graphLine.contains(null_func)) {
                 nullFunc = true;
@@ -94,12 +93,8 @@ public class test {
             String currentCallee = getFuncName(graphLine); // find func name;
             callee = new Method(currentCallee.hashCode(), currentCallee);
             this.addCallee(caller, callee);
-
             HashSet<Method> set = callMap.get(caller);
-           
             methodSupport.put(callee, methodSupport.get(callee) + 1);
-            
-          
             savePairs(set, callee, caller);
         }
 
@@ -123,50 +118,48 @@ public class test {
         if (!methods.contains(m)) {
             methods.add(m);
             callMap.put(m, new HashSet<Method>());
-            methodSupport.put(m,0);
+            methodSupport.put(m, 0);
         }
     }
 
     public void addCallee(Method m1, Method m2) {
-        if (!methods.contains(m2)) {
-            addMethod(m2);
-        }
+        addMethod(m2);
         if (callMap.containsKey(m1)) {
 
-            HashSet<Method> callees = callMap.get(m1);
+            Set<Method> callees = callMap.get(m1);
             callees.add(m2);
-            
+
         }
     }
     Pair ps;
 
     public void savePairs(HashSet set, Method index, Method caller) {
-       if(set != null){
-        for (Iterator<Method> iter = set.iterator(); iter.hasNext();) {
-            Method key = (Method) iter.next();
-            if (key.getId() != index.getId()) {
-                Method s1 = index;
-                Method s2 = key;
-                if (s1.getId() < s2.getId()) {
-                    Pair ps = new Pair(s1, s2);
-                } else {
-                    Pair ps = new Pair(s2, s1);
+        if (set != null) {
+            for (Iterator<Method> iter = set.iterator(); iter.hasNext();) {
+                Method key = (Method) iter.next();
+                if (key.getId() != index.getId()) {
+                    Method s1 = index;
+                    Method s2 = key;
+                    if (s1.getId() < s2.getId()) {
+                        Pair ps = new Pair(s1, s2);
+                    } else {
+                        Pair ps = new Pair(s2, s1);
+                    }
+
+                    if (!pairMap.containsKey(ps)) {
+                        pairSupport.put(ps, 1);
+                        HashSet<Method> temp = new HashSet<Method>();
+                        temp.add(caller);
+                        pairMap.put(ps, temp);
+                    } else {
+
+                        pairSupport.put(ps, (pairSupport.get(ps) + 1));
+                        pairMap.get(ps).add(caller);
+
+                    }
                 }
 
-                if (!pairMap.containsKey(ps)) {
-                    pairSupport.put(ps, 1);
-                    HashSet<Method> temp = new HashSet<Method>();
-                    temp.add(caller);
-                    pairMap.put(ps, temp);
-                } else {
-
-                    pairSupport.put(ps, (pairSupport.get(ps) + 1));
-                    pairMap.get(ps).add(caller);
-
-                }
             }
-
         }
-    }
     }
 }
