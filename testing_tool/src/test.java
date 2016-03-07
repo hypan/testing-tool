@@ -38,8 +38,8 @@ public class test {
 
     public static void main(String[] args) {
         test test = new test();
-        //String fileName = "/Users/haoyuepan/Documents/netbean/call2";
-        String fileName = "/Users/yananchen/Downloads/test3.txt";
+        String fileName = "/Users/haoyuepan/Documents/netbean/call2";
+//        String fileName = "/Users/yananchen/Downloads/test3.txt";
         test.readFileByLines(fileName);
         test.calculateConfidence();
         test.displayBugs(3.00, 65.00);
