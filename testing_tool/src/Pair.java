@@ -1,8 +1,8 @@
 
 public class Pair {
 	
-	private Method method1;
-	private Method method2;
+	public Method method1;
+	public Method method2;
 	/*
 	Pair(Method m1, Method m2){
 		method1 = m1;
