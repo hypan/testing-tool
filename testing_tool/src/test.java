@@ -128,10 +128,6 @@ public class test {
     public void addMethod(Method m) {
         if (!methods.contains(m)) {
             methods.add(m);
-//            callMap.put(m, new HashSet<Method>());
-//            if (!methodSupport.containsKey(m)) {
-//                methodSupport.put(m, 0);
-//            }
         }
     }
 
@@ -147,14 +143,9 @@ public class test {
             Set<Method> callees = callMap.get(m1);
             callees.add(m2);
 
-        }
-        if(!methodSupport.containsKey(m2)){
-            methodSupport.put(m2, 0);
-        }else{
-            methodSupport.put(m2, methodSupport.get(m2)+1);
-        }
-            
+        }   
     }
+    
     public Pair ps = null;
     public Method small = null;
     public Method large = null;
@@ -197,7 +188,6 @@ public class test {
         for (Iterator<Pair> iter = set.iterator(); iter.hasNext();) {
             Pair key = (Pair) iter.next();
             int value = pairMap.get(key).size();
-//            System.out.println(value);
             if (value >= threSupport) {
                 pairSupport.put(key, value);
             }
@@ -210,7 +200,6 @@ public class test {
         supportN1 = 0;
         supportN2 = 0;
         supportPair = 0;
-//       System.out.println(supportN2);
         while (key.hasNext()) {
             Pair pair = key.next();
             supportN1 = methodSupport.get(pair.getMethod1());
@@ -230,30 +219,12 @@ public class test {
                         * 100;
                 result[4] = confidenceN2;
             }
-
             confidenceResult.put(pair, result);
-//            System.out.println("[0]"+confidenceResult.get(pair)[0]);
-//         System.out.println("[1]"+confidenceResult.get(pair)[1]);
-//          System.out.println("[2]"+confidenceResult.get(pair)[2]);
-//            System.out.println("[3]"+confidenceResult.get(pair)[3]);
-//             System.out.println("[4]"+confidenceResult.get(pair)[4]);
         }
         System.out.println("confidenceResult: " + confidenceResult.size());
 
     }
-//    public void displayAnalysis() {
-//		NumberFormat nf = NumberFormat.getNumberInstance();
-//		nf.setMaximumFractionDigits(2);
-//		for (Pair key : confidenceResult.keySet()) {
-//			double[] tab = confidenceResult.get(key);
-//			// output format is changed
-//			System.out.println(key.getMethod1().toString() + "  "
-//					+ key.getMethod2().toString() + " | " + nf.format(tab[0])
-//					+ " | " + nf.format(tab[1]) + " | " + nf.format(tab[2])
-//					+ " | " + nf.format(tab[3]) + " | " + nf.format(tab[4]));
-//		}
-//
-//	}
+
     public int a = 0;
 
     public void displayBugs(double support, double confidence) {
@@ -284,7 +255,6 @@ public class test {
                     }
                 }
             }
-
             if (tab[2] >= support && tab[4] >= confidence) {
 
                 for (Iterator<Method> iter = cont.iterator(); iter.hasNext();) {
@@ -300,54 +270,9 @@ public class test {
                                 + nf1.format(tab[2]) + ", confidence: "
                                 + nf2.format(tab[4]) + "%");
                     }
-
                 }
             }
         }
          System.out.println(a);
     }
-
-
-//        for (Pair key : confidenceResult.keySet()) {
-//            double[] tab = confidenceResult.get(key);
-//            if (tab[2] >= support && tab[3] >= confidence) {
-//                for (Method keyM : callMap.keySet()) {
-//                    
-//                    Set<Method> calledMethods = callMap.get(keyM);
-//                    if (calledMethods.contains(key.getMethod1())
-//                            && !calledMethods.contains(key.getMethod2())) {
-//                        // output format is changed
-//                        a++;
-//                        System.out.println("bug: "
-//                                + key.getMethod1().toString() + " in "
-//                                + keyM.toString() + ", pair: ("
-//                                + key.toString() + "), support: "
-//                                + nf1.format(tab[2]) + ", confidence: "
-//                                + nf2.format(tab[3]) + "%");
-//                    }
-//
-//                }
-//            }
-//           
-//            if (tab[2] >= support && tab[4] >= confidence) {
-//                for (Method keyM : callMap.keySet()) {
-//
-//                    Set<Method> calledMethods = callMap.get(keyM);
-//                    if (calledMethods.contains(key.getMethod2())
-//                            && !calledMethods.contains(key.getMethod1())) {
-//                        // output format is changed 
-//                        a++;
-//                        System.out.println("bug: "
-//                                + key.getMethod2().toString() + " in "
-//                                + keyM.toString() + ", pair: ("
-//                                + key.toString() + "), support: "
-//                                + nf1.format(tab[2]) + ", confidence: "
-//                                + nf2.format(tab[4]) + "%");
-//                    }
-//
-//                }
-//            }
-//
-//        }
-//         System.out.println(a);
 }
