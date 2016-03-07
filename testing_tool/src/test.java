@@ -26,7 +26,7 @@ public class test {
     HashMap<Pair, Integer> pairSupport = new HashMap<Pair, Integer>();
     private Map<Pair, double[]> confidenceResult = new HashMap<Pair, double[]>();
     private HashMap<Method, int[]> programCounter = new HashMap<Method, int[]>();
-    public Set<Bug> bugs = new HashSet<Bug>();
+//    public Set<Bug> bugs = new HashSet<Bug>();
 
     public Integer presentCaller;
     public Integer presentCallee;
@@ -38,10 +38,11 @@ public class test {
 
     public static void main(String[] args) {
         test test = new test();
-        String fileName = "/Users/haoyuepan/Documents/netbean/call2";
+        //String fileName = "/Users/haoyuepan/Documents/netbean/call2";
+        String fileName = "/Users/yananchen/Downloads/test3.txt";
         test.readFileByLines(fileName);
         test.calculateConfidence();
-        test.displayBugs(10.00, 80.00);
+        test.displayBugs(3.00, 65.00);
     }
 
     public void readFileByLines(String fileName) {
