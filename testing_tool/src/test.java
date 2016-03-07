@@ -33,18 +33,25 @@ public class test {
     public Integer presentCallee;
     public Method caller = null;
     public Method callee = null;
-    public static Integer support = 3;
     int threSupport = 3;
     double threConfidence = 0.65;
+    public Pair ps = null;
+    public int a = 0;
+    public Method small = null;
+    public Method large = null;
+        public Method m1;
+    public Method m2;
+    boolean nullFunc = false;
 
     public static void main(String[] args) {
         test test = new test();
         String fileName = "/Users/haoyuepan/Documents/netbean/call2";
 //        String fileName = "/Users/yananchen/Downloads/test3.txt";
         test.readFileByLines(fileName);
+//        test.chooseThrePair();
         test.calculateConfidence();
 
-        test.displayBugs(3.00, 65.00);
+        test.displayBugs(10.00, 80.00);
     }
 
     public void readFileByLines(String fileName) {
@@ -57,14 +64,10 @@ public class test {
                 saveGraph(tempString);
             }
             chooseThrePair();
-//            analyse();
-//        displayBugs(3.00, 65.00);
-
             System.out.println("method: " + methods.size());
             System.out.println("callMap: " + callMap.size());
-            System.out.println("pairMap: " + pairMap.size());
+            System.out.println("pairMap: " + pairMap);
             System.out.println("pairsupport: " + pairSupport.size());
-
             System.out.println("methodSupport: " + methodSupport.size());
 //            System.out.println("pairSupport: " + analysis);
 //            System.out.println("finalPairSupport: " + analysis.size());
@@ -82,8 +85,6 @@ public class test {
         }
     }
 
-    boolean nullFunc = false;
-
     public void saveGraph(String graphLine) {
 
         if (graphLine.trim().startsWith(call_gra)) {
@@ -91,7 +92,7 @@ public class test {
                 nullFunc = true;
                 String currentCaller = getFuncName(graphLine);
                 caller = new Method(currentCaller.hashCode(), currentCaller);
-                this.addMethod(caller);
+                addMethod(caller);
             } else {
                 nullFunc = false;
             }
@@ -100,13 +101,26 @@ public class test {
 
             String currentCallee = getFuncName(graphLine); // find func name;
             callee = new Method(currentCallee.hashCode(), currentCallee);
-            this.addCallee(caller, callee);
-            if(!methodSupport.containsKey(callee)){
-                methodSupport.put(callee, 1);
-            }else{
-            methodSupport.put(callee, methodSupport.get(callee) + 1);
+            addMethod(callee);
+            HashSet<Method> set = callMap.get(caller);
+            
+            if (set == null) {
+                set = new HashSet<Method>();
+                set.add(callee);
+                callMap.put(caller, set);
+                methodSupport.put(callee, methodSupport.get(callee) + 1);
+            } else if (!set.contains(callee)) {
+                set.add(callee);
+                methodSupport.put(callee, methodSupport.get(callee) + 1);
+                savePairs(set, callee); // pair support
             }
-            savePairs();
+//            this.addCallee(caller, callee);
+//            if(!methodSupport.containsKey(callee)){
+//                methodSupport.put(callee, 1);
+//            }else{
+//            methodSupport.put(callee, methodSupport.get(callee) + 1);
+//            }
+//            savePairs();
         }
 
     }
@@ -128,11 +142,12 @@ public class test {
     public void addMethod(Method m) {
         if (!methods.contains(m)) {
             methods.add(m);
+            methodSupport.put(m, 0);
         }
     }
 
     public void addCallee(Method m1, Method m2) {
-        addMethod(m2);
+    
         if(!callMap.containsKey(m1)){
             HashSet<Method> temp = new HashSet<Method>();
             temp.add(m2);
@@ -146,34 +161,48 @@ public class test {
         }   
     }
     
-    public Pair ps = null;
-    public Method small = null;
-    public Method large = null;
-
-    public void savePairs() {
-        HashSet<Method> set = callMap.get(caller);
-
-        for (Iterator<Method> iter = set.iterator(); iter.hasNext();) {
+    public void savePairs(HashSet<Method> set, Method callee) {
+       for (Iterator<Method> iter = set.iterator(); iter.hasNext();) {
             Method key = (Method) iter.next();
+            if (key != callee) {
 
-            if (key.getId() != callee.getId()) {
-                small = callee;
-                large = key;
-
-                if (large.getId() < small.getId()) {
-                    Pair ps = new Pair(callee, key);
-                    save(ps, caller);
-                } else {
-
-                    Pair ps = new Pair(large, small);
-                    save(ps, caller);
+                m1 = key;
+                m2 = callee;
+                if (key.getId() > callee.getId() ) {
+                    m1 = callee;
+                    m2 = key;
                 }
 
+                Pair p1 = new Pair(m1, m2);
+                save(p1);
             }
         }
     }
+//   
+// public void savePairs(HashSet<Method> set, Method callee) {
+//        HashSet<Method> temp = callMap.get(caller);
+//
+//        for (Iterator<Method> iter = set.iterator(); iter.hasNext();) {
+//            Method key = (Method) iter.next();
+//
+//            if (key.getId() != callee.getId()) {
+//                small = callee;
+//                large = key;
+//
+//                if (large.getId() < small.getId()) {
+//                    Pair ps = new Pair(callee, key);
+//                    save(ps, caller);
+//                } else {
+//
+//                    Pair ps = new Pair(large, small);
+//                    save(ps, caller);
+//                }
+//
+//            }
+//        }
+//    }
 
-    public void save(Pair ps, Method caller) {
+    public void save(Pair ps) {
         if (!pairMap.containsKey(ps)) {
             HashSet<Method> temp = new HashSet<Method>();
             temp.add(caller);
@@ -182,6 +211,7 @@ public class test {
             pairMap.get(ps).add(caller);
         }
     }
+   
 
     public void chooseThrePair() {
         Set<Pair> set = pairMap.keySet();
@@ -209,23 +239,21 @@ public class test {
             result[0] = supportN1;
             result[1] = supportN2;
             result[2] = supportPair;
-            if (supportN1 != 0) {
                 double confidenceN1 = (double) supportPair / (double) supportN1
                         * 100;
                 result[3] = confidenceN1;
-            }
-            if (supportN2 != 0) {
+         
+           
                 double confidenceN2 = (double) supportPair / (double) supportN2
                         * 100;
                 result[4] = confidenceN2;
-            }
+           
             confidenceResult.put(pair, result);
+//            System.out.println(result[1]);
         }
         System.out.println("confidenceResult: " + confidenceResult.size());
 
     }
-
-    public int a = 0;
 
     public void displayBugs(double support, double confidence) {
         DecimalFormat nf1 = new DecimalFormat("#"); // change the output format
@@ -237,8 +265,8 @@ public class test {
             Method f1 = p.getMethod1();
             Method f2 = p.getMethod2();
             double[] tab = confidenceResult.get(p);
-            if (tab[2] >= support && tab[3] >= confidence) {
-
+            if(tab[2]>=support){
+            if (tab[3] >= confidence) {
                 for (Iterator<Method> iter = cont.iterator(); iter.hasNext();) {
                     Method key = (Method) iter.next();
                     HashSet<Method> methods = callMap.get(key);
@@ -255,7 +283,7 @@ public class test {
                     }
                 }
             }
-            if (tab[2] >= support && tab[4] >= confidence) {
+            if (tab[4] >= confidence) {
 
                 for (Iterator<Method> iter = cont.iterator(); iter.hasNext();) {
                     Method key = (Method) iter.next();
@@ -272,7 +300,7 @@ public class test {
                     }
                 }
             }
-        }
+        }}
          System.out.println(a);
     }
 }
