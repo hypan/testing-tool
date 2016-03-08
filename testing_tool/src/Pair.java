@@ -1,51 +1,51 @@
 
 public class Pair {
 	
-	public Method method1;
-	public Method method2;
+	public Node Node1;
+	public Node Node2;
 	/*
-	Pair(Method m1, Method m2){
-		method1 = m1;
-		method2 = m2;
+	Pair(Node m1, Node m2){
+		Node1 = m1;
+		Node2 = m2;
 	}*/
 	
-	Pair(Method m1, Method m2){
+	Pair(Node m1, Node m2){
 		if(m1.getName().compareTo(m2.getName())<=0){
-			method1 = m1; method2 = m2;
+			Node1 = m1; Node2 = m2;
 		}else{
-			method1 = m2; method2 = m1;
+			Node1 = m2; Node2 = m1;
 		}
 	}
-	public Method getMethod1() {
-		return method1;
+	public Node getNode1() {
+		return Node1;
 	}
-	public void setMethod1(Method m1) {
-		this.method1 = m1;
+	public void setNode1(Node m1) {
+		this.Node1 = m1;
 	}
-	public Method getMethod2() {
-		return method2;
+	public Node getNode2() {
+		return Node2;
 	}
-	public void setMethod2(Method m2) {
-		this.method2 = m2;
+	public void setNode2(Node m2) {
+		this.Node2 = m2;
 	}
 	
 	public String toString(){
-		return method1.getName()+" "+ method2.getName();
+		return Node1.getName()+" "+ Node2.getName();
 		
 	}
 	@Override
 	public int hashCode() {
-		//return (this.getMethod1().getId()+""+this.getMethod2().getId()).hashCode();
-		return this.method1.hashCode()+this.method2.hashCode();
+		//return (this.getNode1().getId()+""+this.getNode2().getId()).hashCode();
+		return this.Node1.hashCode()+this.Node2.hashCode();
 
 	}
 	
-	public Method getTwin(Method m)
+	public Node getTwin(Node m)
 	{
-		if (method1.equals(m))
-			return method2;
+		if (Node1.equals(m))
+			return Node2;
 		else
-			return method1;
+			return Node1;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -56,3 +56,4 @@ public class Pair {
 	}
 
 }
+
