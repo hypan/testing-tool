@@ -30,7 +30,6 @@ public class test {
     HashMap<Pair, HashSet<Node>> pairMap = new HashMap<Pair, HashSet<Node>>();
     HashMap<Pair, Integer> pairSupport = new HashMap<Pair, Integer>();
     HashMap<Pair, double[]> confidenceResult = new HashMap<Pair, double[]>();
-    HashMap<Integer, Bug> bugMap = new HashMap<Integer, Bug>();
 
     public Pair ps = null;
     public int a = 0;     // Used for test, should be deleted finally.
@@ -46,7 +45,6 @@ public class test {
         test.chooseThrePair();
         test.saveConfidenceMap();
         test.findBugs(3, 65.00);
-//        test.printBugs();
     }
 
     public void readFileByLines(String fileName) {
@@ -90,19 +88,10 @@ public class test {
             callee = new Node(currentCallee.hashCode(), currentCallee);
             addNode(callee);
             saveCallMap(caller, callee);
-//            this.addCallee(caller, callee);
-//            if(!NodeSupport.containsKey(callee)){
-//                NodeSupport.put(callee, 1);
-//            }else{
-//            NodeSupport.put(callee, NodeSupport.get(callee) + 1);
-//            }
-//            savePairs();
         }
-
     }
 
     // Get function names from each line
-
     public String getFuncName(String line) {
 
         String regEx1 = "'(.+)'"; // string within ' '
@@ -134,18 +123,7 @@ public class test {
             set.add(callee);
             NodeSupport.put(callee, NodeSupport.get(callee) + 1);
             createNodePair(set, callee); // pair support
-        }
-//        if(!callMap.containsKey(m1)){
-//            HashSet<Node> temp = new HashSet<Node>();
-//            temp.add(m2);
-//            callMap.put(m1, temp);
-//            
-//        }else {
-//
-//            Set<Node> callees = callMap.get(m1);
-//            callees.add(m2);
-//
-//        }   
+        }  
     }
 
     public void createNodePair(HashSet<Node> set, Node callee) {
@@ -154,15 +132,8 @@ public class test {
         for (Iterator<Node> iter = set.iterator(); iter.hasNext();) {
             Node key = (Node) iter.next();
             if (key != callee) {
-                small = callee;
-                large = key;
-                if (large.getId() < small.getId()) {
-                    Pair ps = new Pair(callee, key);
-                    savePairs(ps);
-                } else {
-                    Pair ps = new Pair(large, small);
-                    savePairs(ps);
-                }
+                 Pair ps = new Pair(callee, key);
+                 savePairs(ps);
             }
         }
     }
@@ -212,16 +183,13 @@ public class test {
             result[4] = confidenceN2;
 
             confidenceResult.put(pair, result);
-//            System.out.println(result[1]);
         }
         System.out.println("confidenceResult: " + confidenceResult.size());
 
     }
 
     public void findBugs(int support, double confidence) {
-        DecimalFormat nf1 = new DecimalFormat("#"); // change the output format
-        DecimalFormat nf2 = new DecimalFormat("#.00");
-
+       
         Set<Node> cont = callMap.keySet();
         Set<Pair> conf = confidenceResult.keySet();
         for (Pair p : conf) {
@@ -235,19 +203,17 @@ public class test {
                         HashSet<Node> Nodes = callMap.get(key);
 
                         if (Nodes.contains(f1) && (!Nodes.contains(f2))) {
-                           
+
 //                            saveBugs(p, key, tab);
-                       
 //                            a++;//used for test, should be deleted finally
-                            
                             System.out.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n",
-                     p.getNode2().toString(),
-                     key.toString(),
-                             p.getNode1().toString(),
-                                     p.getNode2().toString(),
-                                            (int) tab[2],
-                                                     tab[3]
-             );
+                                    p.getNode2().toString(),
+                                    key.toString(),
+                                    p.getNode1().toString(),
+                                    p.getNode2().toString(),
+                                    (int) tab[2],
+                                    tab[3]
+                            );
                         }
                     }
                 }
@@ -258,18 +224,19 @@ public class test {
                         HashSet<Node> Nodes = callMap.get(key);
                         if (!Nodes.contains(f1) && (Nodes.contains(f2))) {
 //                        saveBugs(p, key, tab);
-                     System.out.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n",
-                     p.getNode2().toString(),
-                     key.toString(),
-                             p.getNode1().toString(),
-                                     p.getNode2().toString(),
-                                             (int)tab[2],
-                                                     tab[3]
-             );
+                            System.out.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n",
+                                    p.getNode2().toString(),
+                                    key.toString(),
+                                    p.getNode1().toString(),
+                                    p.getNode2().toString(),
+                                    (int) tab[2],
+                                    tab[3]
+                            );
                         }
                     }
                 }
             }
         }
-    }   
+    }
+
 }
