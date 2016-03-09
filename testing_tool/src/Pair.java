@@ -10,7 +10,7 @@ public class Pair {
 	}*/
 	
 	Pair(Node m1, Node m2){
-		if(m1.getName().compareTo(m2.getName())<=0){
+		if(m1.getFunc().compareTo(m2.getFunc())<=0){
 			Node1 = m1; Node2 = m2;
 		}else{
 			Node1 = m2; Node2 = m1;
@@ -30,7 +30,7 @@ public class Pair {
 	}
 	
 	public String toString(){
-		return Node1.getName()+" "+ Node2.getName();
+		return Node1.getFunc()+","+ Node2.getFunc();
 		
 	}
 	@Override
@@ -40,13 +40,6 @@ public class Pair {
 
 	}
 	
-	public Node getTwin(Node m)
-	{
-		if (Node1.equals(m))
-			return Node2;
-		else
-			return Node1;
-	}
 	@Override
 	public boolean equals(Object obj) {
 		if(! (obj instanceof Pair))return false;
