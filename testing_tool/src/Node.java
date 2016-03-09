@@ -1,25 +1,25 @@
 
 public class Node {
 
-	private String name;
+	private String func;
 	private int id;
 	
-	Node(int NodeId, String NodeName)
+	Node(int NodeId, String FuncName)
 	{
 		id = NodeId;
-		name = NodeName;
+		func = FuncName;
 	}
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated Node stub
-		return name.hashCode();
+		return func.hashCode();
 	}
 	
-	public String getName() {
-		return name;
+	public String getFunc(){
+		return func;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFunc (String func){
+		this.func = func;
 	}
 	public int getId() {
 		return id;
@@ -27,23 +27,13 @@ public class Node {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-//	public boolean equals(Object o) {
-//		if (!(o instanceof Node)) return false;
-//	    return (id==((Node)o).getId() );
-//	}
+
 	public boolean equals(Object o) {
 		if (!(o instanceof Node)) return false;
-	    return (name.equals(((Node)o).getName()) );
+	    return (func.equals(((Node)o).getFunc()) );
 	}
 	public String toString(){
-		return name;
+		return func;
 	}
-
-	
-	
-	
-	
-
 }
 
