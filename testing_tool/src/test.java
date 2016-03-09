@@ -14,8 +14,8 @@ import java.io.InputStreamReader;
 
 public class test {
 
-    private int T_SUPPORT = 10;
-    private float T_CONFIDENCE = 80;
+    public static int T_SUPPORT;
+    public static double T_CONFIDENCE;
     public Node caller = null;
     public Node callee = null;
 
@@ -34,8 +34,9 @@ public class test {
     public int a = 0;     // Used for test, should be deleted finally.
     public Node small = null;
     public Node large = null;
-    boolean nullFunc = false;
-public String fileName;
+    public boolean nullFunc = false;
+    public String fileName;
+
     public static void main(String[] args) {
         test test = new test();
         test.setInput(args);
@@ -44,7 +45,7 @@ public String fileName;
         test.readFileByLines();
         test.chooseThrePair();
         test.saveConfidenceMap();
-        test.findBugs(3, 65.00);
+        test.findBugs(T_SUPPORT, T_CONFIDENCE);
     }
 
     private void setInput(String[] args) {
@@ -248,4 +249,6 @@ public String fileName;
             }
         }
     }
+
 }
+
