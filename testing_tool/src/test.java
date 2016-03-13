@@ -3,19 +3,20 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class test {
 
-    public static int T_SUPPORT;
-    public static double T_CONFIDENCE;
+    private int T_SUPPORT = 3;
+    private float T_CONFIDENCE = 65;
     public Node caller = null;
     public Node callee = null;
 
@@ -34,52 +35,39 @@ public class test {
     public int a = 0;     // Used for test, should be deleted finally.
     public Node small = null;
     public Node large = null;
-    public boolean nullFunc = false;
-    public String fileName;
+    boolean nullFunc = false;
 
     public static void main(String[] args) {
         test test = new test();
-        test.setInput(args);
-//        String fileName = "/Users/haoyuepan/Documents/netbean/call2";
+        String fileName = "/Users/haoyuepan/Documents/netbean/call";
 //        String fileName = "/Users/yananchen/Downloads/test3.txt";
-        test.readFileByLines();
+        test.readFileByLines(fileName);
         test.chooseThrePair();
         test.saveConfidenceMap();
-        test.findBugs(T_SUPPORT, T_CONFIDENCE);
+        test.findBugs(3, 65.00);
     }
 
-    private void setInput(String[] args) {
-        fileName = args[0];
-        System.out.println(fileName);
-        switch (args.length) {
-            case 3:
-                T_SUPPORT = Integer.parseInt(args[1]);
-                T_CONFIDENCE = Integer.parseInt(args[2]);
-                break;
-            default:
-                T_SUPPORT = 3;
-                T_CONFIDENCE = 65;
-                break;
-        }
-    }
-
-    public void readFileByLines() {
-        final String optCommand = "opt -print-callgraph " + fileName + " >/dev/null";
-        ProcessBuilder proc = new ProcessBuilder("bash", "-c", optCommand);
-        Process process;
+    public void readFileByLines(String fileName) {
+        File file = new File(fileName);
+        BufferedReader reader = null;
         try {
-            process = proc.start();
-            InputStream stderr = process.getErrorStream();
-            InputStreamReader isr = new InputStreamReader(stderr, "UTF-8");
-            BufferedReader reader = new BufferedReader(isr);
+            reader = new BufferedReader(new FileReader(file));
             String tempString = null;
-
             while ((tempString = reader.readLine()) != null) {
                 saveGraph(tempString);
             }
+            
+            System.out.println(callMap.size());
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                }
+            }
         }
     }
 
@@ -137,16 +125,16 @@ public class test {
             set.add(callee);
             NodeSupport.put(callee, NodeSupport.get(callee) + 1);
             createNodePair(set, callee); // pair support
-        }
+        }  
     }
 
     public void createNodePair(HashSet<Node> set, Node callee) {
-        HashSet<Node> temp = callMap.get(caller);
+      
         for (Iterator<Node> iter = set.iterator(); iter.hasNext();) {
             Node key = (Node) iter.next();
             if (key != callee) {
-                Pair ps = new Pair(callee, key);
-                savePairs(ps);
+                 Pair ps = new Pair(callee, key);
+                 savePairs(ps);
             }
         }
     }
@@ -202,7 +190,7 @@ public class test {
     }
 
     public void findBugs(int support, double confidence) {
-
+       
         Set<Node> cont = callMap.keySet();
         Set<Pair> conf = confidenceResult.keySet();
         for (Pair p : conf) {
@@ -217,8 +205,10 @@ public class test {
 
                         if (Nodes.contains(f1) && (!Nodes.contains(f2))) {
 
+//                            saveBugs(p, key, tab);
+                            a++;//used for test, should be deleted finally
                             System.out.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n",
-                                    p.getNode2().toString(),
+                                    p.getNode1().toString(),
                                     key.toString(),
                                     p.getNode1().toString(),
                                     p.getNode2().toString(),
@@ -234,21 +224,22 @@ public class test {
                         Node key = (Node) iter.next();
                         HashSet<Node> Nodes = callMap.get(key);
                         if (!Nodes.contains(f1) && (Nodes.contains(f2))) {
-
+//                        saveBugs(p, key, tab);
+                            a++;
+                           
                             System.out.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n",
                                     p.getNode2().toString(),
                                     key.toString(),
                                     p.getNode1().toString(),
                                     p.getNode2().toString(),
                                     (int) tab[2],
-                                    tab[3]
+                                    tab[4]
                             );
                         }
                     }
                 }
             }
         }
+        System.out.println(a);
     }
-
 }
-
