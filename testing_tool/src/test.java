@@ -3,12 +3,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,12 +21,12 @@ public class test {
     private final String callee_start = "calls function";
     private final String null_func = "null function";
 
-    HashSet<Node> Nodes = new HashSet<Node>();
-    HashMap<Node, HashSet<Node>> callMap = new HashMap<Node, HashSet<Node>>();
-    HashMap<Node, Integer> NodeSupport = new HashMap<Node, Integer>();
-    HashMap<Pair, HashSet<Node>> pairMap = new HashMap<Pair, HashSet<Node>>();
-    HashMap<Pair, Integer> pairSupport = new HashMap<Pair, Integer>();
-    HashMap<Pair, double[]> confidenceResult = new HashMap<Pair, double[]>();
+    HashSet<Node> Nodes = new HashSet<>();
+    HashMap<Node, HashSet<Node>> callMap = new HashMap<>();
+    HashMap<Node, Integer> NodeSupport = new HashMap<>();
+    HashMap<Pair, HashSet<Node>> pairMap = new HashMap<>();
+    HashMap<Pair, Integer> pairSupport = new HashMap<>();
+    
 
     public Pair ps = null;
     public int a = 0;     // Used for test, should be deleted finally.
@@ -38,16 +35,18 @@ public class test {
     boolean nullFunc = false;
 
     public static void main(String[] args) {
+
         test test = new test();
         String fileName = "/Users/haoyuepan/Documents/netbean/call";
 //        String fileName = "/Users/yananchen/Downloads/test3.txt";
         test.readFileByLines(fileName);
         test.chooseThrePair();
         test.saveConfidenceMap();
-        test.findBugs(3, 65.00);
+
     }
 
     public void readFileByLines(String fileName) {
+
         File file = new File(fileName);
         BufferedReader reader = null;
         try {
@@ -56,7 +55,7 @@ public class test {
             while ((tempString = reader.readLine()) != null) {
                 saveGraph(tempString);
             }
-            
+
             System.out.println(callMap.size());
             reader.close();
         } catch (IOException e) {
@@ -85,7 +84,6 @@ public class test {
             }
         } else if (nullFunc
                 && graphLine.contains(callee_start)) {
-
             String currentCallee = getFuncName(graphLine); // find func name;
             callee = new Node(currentCallee.hashCode(), currentCallee);
             addNode(callee);
@@ -108,6 +106,7 @@ public class test {
     }
 
     public void addNode(Node m) {
+
         if (!Nodes.contains(m)) {
             Nodes.add(m);
             NodeSupport.put(m, 0);
@@ -115,31 +114,32 @@ public class test {
     }
 
     public void saveCallMap(Node caller, Node callee) {
-        HashSet<Node> set = callMap.get(caller);
-        if (set == null) {
-            set = new HashSet<Node>();
+
+        if (!callMap.containsKey(caller)) {
+            HashSet<Node> set = new HashSet<Node>();
             set.add(callee);
             callMap.put(caller, set);
             NodeSupport.put(callee, NodeSupport.get(callee) + 1);
-        } else if (!set.contains(callee)) {
-            set.add(callee);
+        } else if (!callMap.get(caller).contains(callee)) {
+            callMap.get(caller).add(callee);
             NodeSupport.put(callee, NodeSupport.get(callee) + 1);
-            createNodePair(set, callee); // pair support
-        }  
+            createNodePair(callMap.get(caller), callee); // pair support
+        }
     }
 
     public void createNodePair(HashSet<Node> set, Node callee) {
-      
+
         for (Iterator<Node> iter = set.iterator(); iter.hasNext();) {
             Node key = (Node) iter.next();
             if (key != callee) {
-                 Pair ps = new Pair(callee, key);
-                 savePairs(ps);
+                Pair ps = new Pair(callee, key);
+                savePairs(ps);
             }
         }
     }
 
     public void savePairs(Pair ps) {
+
         if (!pairMap.containsKey(ps)) {
             HashSet<Node> temp = new HashSet<Node>();
             temp.add(caller);
@@ -150,6 +150,7 @@ public class test {
     }
 
     public void chooseThrePair() {
+
         Set<Pair> set = pairMap.keySet();
         for (Iterator<Pair> iter = set.iterator(); iter.hasNext();) {
             Pair key = (Pair) iter.next();
@@ -161,85 +162,58 @@ public class test {
     }
 
     public void saveConfidenceMap() {
+
         Iterator<Pair> key = pairSupport.keySet().iterator();
-        int supportN1, supportN2, supportPair;
-        supportN1 = 0;
-        supportN2 = 0;
-        supportPair = 0;
+        int supportPair;
+
         while (key.hasNext()) {
             Pair pair = key.next();
-            supportN1 = NodeSupport.get(pair.getNode1());
-            supportN2 = NodeSupport.get(pair.getNode2());
             supportPair = pairSupport.get(pair);
-            double[] result = new double[5];
-            result[0] = supportN1;
-            result[1] = supportN2;
-            result[2] = supportPair;
-            double confidenceN1 = (double) supportPair / (double) supportN1
-                    * 100;
-            result[3] = confidenceN1;
-
-            double confidenceN2 = (double) supportPair / (double) supportN2
-                    * 100;
-            result[4] = confidenceN2;
-
-            confidenceResult.put(pair, result);
+            if (supportPair >= T_SUPPORT) {
+                Node left = pair.getNode1();
+                findBugs(left, pair, supportPair);
+                Node right = pair.getNode2();
+                findBugs(right, pair, supportPair);
+            }
         }
-        System.out.println("confidenceResult: " + confidenceResult.size());
 
+//        System.out.println("confidenceResult: " + confidenceResult.size());
     }
 
-    public void findBugs(int support, double confidence) {
-       
+    public void findBugs(Node function, Pair pair, int supportPair) {
+
         Set<Node> cont = callMap.keySet();
-        Set<Pair> conf = confidenceResult.keySet();
-        for (Pair p : conf) {
-            Node f1 = p.getNode1();
-            Node f2 = p.getNode2();
-            double[] tab = confidenceResult.get(p);
-            if (tab[2] >= support) {
-                if (tab[3] >= confidence) {
-                    for (Iterator<Node> iter = cont.iterator(); iter.hasNext();) {
-                        Node key = (Node) iter.next();
-                        HashSet<Node> Nodes = callMap.get(key);
-
-                        if (Nodes.contains(f1) && (!Nodes.contains(f2))) {
-
-//                            saveBugs(p, key, tab);
-                            a++;//used for test, should be deleted finally
-                            System.out.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n",
-                                    p.getNode1().toString(),
-                                    key.toString(),
-                                    p.getNode1().toString(),
-                                    p.getNode2().toString(),
-                                    (int) tab[2],
-                                    tab[3]
-                            );
-                        }
-                    }
+//        Set<Pair> conf = confidenceResult.keySet();
+        int supportFunc = NodeSupport.get(function);
+        double tempConf = (double)supportPair / (double)supportFunc * 100;
+//        System.out.println(tempConf);
+        if (tempConf >= T_CONFIDENCE) {
+            for (Iterator<Node> iter = cont.iterator(); iter.hasNext();) {
+                Node key = (Node) iter.next();
+                HashSet<Node> Nodes = callMap.get(key);
+                Node left = pair.getNode1();
+                Node right = pair.getNode2();
+                Node otherFunc = null;
+                if(function==left){
+                    otherFunc = pair.getNode2();
+                }else if(function==right){
+                    otherFunc = pair.getNode1();
                 }
-                if (tab[4] >= confidence) {
+//                System.out.println(otherFunc);
+                if (Nodes.contains(function) && !Nodes.contains(otherFunc)) {
+                    a++;//used for test, should be deleted finally
 
-                    for (Iterator<Node> iter = cont.iterator(); iter.hasNext();) {
-                        Node key = (Node) iter.next();
-                        HashSet<Node> Nodes = callMap.get(key);
-                        if (!Nodes.contains(f1) && (Nodes.contains(f2))) {
-//                        saveBugs(p, key, tab);
-                            a++;
-                           
-                            System.out.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n",
-                                    p.getNode2().toString(),
-                                    key.toString(),
-                                    p.getNode1().toString(),
-                                    p.getNode2().toString(),
-                                    (int) tab[2],
-                                    tab[4]
-                            );
-                        }
-                    }
+                    System.out.format("bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n",
+                            function,
+                            key.toString(),
+                            pair.getNode1().toString(),
+                            pair.getNode2().toString(),
+                            supportPair,
+                            tempConf
+                    );
                 }
             }
         }
-        System.out.println(a);
+
     }
 }
