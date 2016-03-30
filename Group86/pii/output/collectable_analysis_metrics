@@ -1,0 +1,111 @@
+{
+  "cov-analyze" : {
+    "command-line-options" : {
+      args : [
+        "dir",
+        "config"
+      ]
+    },
+    time : 31,
+    "line-counts" : {
+      "C/C++" : {
+        "blank-lines" : 0,
+        "code-lines" : 0,
+        "comment-lines" : 0
+      },
+      Java : {
+        "blank-lines" : 44,
+        "code-lines" : 251,
+        "comment-lines" : 13
+      },
+      "C#" : {
+        "blank-lines" : 0,
+        "code-lines" : 0,
+        "comment-lines" : 0
+      },
+      JavaScript : {
+        "blank-lines" : 0,
+        "code-lines" : 0,
+        "comment-lines" : 0
+      },
+      "Objective-C/C++" : {
+        "blank-lines" : 0,
+        "code-lines" : 0,
+        "comment-lines" : 0
+      },
+      PHP : {
+        "blank-lines" : 0,
+        "code-lines" : 0,
+        "comment-lines" : 0
+      },
+      Python : {
+        "blank-lines" : 0,
+        "code-lines" : 0,
+        "comment-lines" : 0
+      }
+    },
+    "file-statistics-by-extension" : {
+      class : {
+        files : 3,
+        "total-bytes" : 9742
+      },
+      jar : {
+        files : 12,
+        "total-bytes" : 37881452
+      },
+      java : {
+        files : 1,
+        "total-bytes" : 9139
+      }
+    },
+    ident : "8.0.0 (build 2c247ff7c4 p-jasper-push-24789.298)",
+    platform : "Linux 2.6.18-407.el5 x86_64",
+    "short-platform" : "linux64",
+    extver : "8.0.0",
+    intver : "2c247ff7c4 p-jasper-push-24789.298",
+    "aw-peak-mem-bytes" : 52387840,
+    "am+aw-peak-mem-bytes" : 140861440,
+    "bytecode-functions" : 0,
+    concurrency : true,
+    cxx : true,
+    "enable-parse-warnings" : false,
+    failures : 0,
+    "files-analyzed" : 1,
+    force : false,
+    "function-metrics-count" : 32,
+    "functions-analyzed" : 32,
+    "incremental-hits" : 0,
+    "incremental-misses" : 128,
+    "dyncg-sites-resolved" : 0,
+    "dyncg-sites-total" : 0,
+    "max-mem" : 512,
+    "memout-count" : 0,
+    "pathout-count" : 0,
+    paths : 5000,
+    "paths-analyzed" : 503,
+    "peak-mem-bytes" : 272752640,
+    security : true,
+    "tus-count" : 12,
+    "web-app-archives" : 0,
+    "string-graph-nodes" : 0,
+    "web-app-entry-points" : 0,
+    "web-app-views-unused" : 0,
+    "ta.code_age_thresholds" : "0, 0",
+    "enabled-checkers" : "ARRAY_VS_SINGLETON ASSERT_SIDE_EFFECT BAD_ALLOC_ARITHMETIC BAD_ALLOC_STRLEN BAD_CHECK_OF_WAIT_COND BAD_COMPARE BAD_FREE BAD_LOCK_OBJECT BAD_OVERRIDE BAD_SIZEOF CALL_SUPER CHAR_IO CHECKED_RETURN COM.BAD_FREE COM.BSTR.CONV CONSTANT_EXPRESSION_RESULT COPY_PASTE_ERROR CTOR_DTOR_LEAK DEADCODE DELETE_ARRAY DELETE_VOID EVALUATION_ORDER EXPLICIT_THIS_EXPECTED FB.* FORWARD_NULL GUARDED_BY_VIOLATION IDENTICAL_BRANCHES IDENTIFIER_TYPO INFINITE_LOOP INVALIDATE_ITERATOR LOCK_EVASION LOCK_INVERSION MISSING_BREAK MISSING_RETURN NEGATIVE_RETURNS NESTING_INDENT_MISMATCH NON_STATIC_GUARDING_STATIC NO_EFFECT NULL_RETURNS OVERFLOW_BEFORE_WIDEN OVERRUN PASS_BY_VALUE READLINK RESOURCE_LEAK RETURN_LOCAL REVERSE_INULL REVERSE_NEGATIVE SIGN_EXTENSION SIZEOF_MISMATCH STRAY_SEMICOLON STREAM_FORMAT_STATE SWAPPED_ARGUMENTS UNCAUGHT_EXCEPT UNINIT UNINIT_CTOR UNINTENDED_GLOBAL UNINTENDED_INTEGER_DIVISION UNREACHABLE UNUSED_VALUE USE_AFTER_FREE VARARGS VOLATILE_ATOMICITY WRAPPER_ESCAPE",
+    "FB.DM_DEFAULT_ENCODING-new-defect-count" : 1,
+    "FB.SS_SHOULD_BE_STATIC-new-defect-count" : 3,
+    "FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD-new-defect-count" : 3,
+    "FB.VA_FORMAT_STRING_USES_NEWLINE-new-defect-count" : 1,
+    "NULL_RETURNS-new-defect-count" : 2,
+    "RESOURCE_LEAK-new-defect-count" : 1,
+    "total-new-defect-count" : 11
+  },
+  "cov-build" : {
+    "build-successes" : 1,
+    "build-failures" : 0,
+    "build-up-to-date" : 0,
+    "cs-webapps-detected" : 0,
+    "cs-webapp-successes" : 0,
+    "cs-webapp-compilation-secs" : 0
+  }
+}

@@ -1,0 +1,93 @@
+Generated classes:
+public class org.GNOME.Accessibility.ContentStreamPackage.IOError {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.IOErrorHelper {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.NoPermission {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.NoPermissionHelper {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.NotSupported {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.NotSupportedHelper {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.SeekType {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.SeekTypeHelper {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.iobufHelper {
+}
+public class org.GNOME.Accessibility.ContentStreamPackage.iobufHolder {
+}
+public class org.GNOME.Accessibility.SelectorPackage.CommandResult {
+}
+public class org.GNOME.Accessibility.SelectorPackage.CommandResultHelper {
+}
+public class org.GNOME.Accessibility.TextPackage.Range {
+}
+public class org.GNOME.Accessibility.TextPackage.RangeListHelper {
+}
+public class org.GNOME.Accessibility._LoginHelperPackage.DeviceReq {
+}
+public class org.GNOME.Accessibility._LoginHelperPackage.DeviceReqListHelper {
+}
+public class org.GNOME.Accessibility._LoginHelperPackage.WindowInfo {
+}
+public class org.GNOME.Accessibility._LoginHelperPackage.WindowListHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.DirectoryListHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.IOError {
+}
+public class org.GNOME.Bonobo.StoragePackage.IOErrorHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.NameExists {
+}
+public class org.GNOME.Bonobo.StoragePackage.NameExistsHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.NoPermission {
+}
+public class org.GNOME.Bonobo.StoragePackage.NoPermissionHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotEmpty {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotEmptyHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotFound {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotFoundHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotStorage {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotStorageHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotStream {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotStreamHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotSupported {
+}
+public class org.GNOME.Bonobo.StoragePackage.NotSupportedHelper {
+}
+public class org.GNOME.Bonobo.StoragePackage.OpenModeHelper {
+}
+public class org.GNOME.Bonobo.StreamPackage.IOError {
+}
+public class org.GNOME.Bonobo.StreamPackage.IOErrorHelper {
+}
+public class org.GNOME.Bonobo.StreamPackage.NoPermission {
+}
+public class org.GNOME.Bonobo.StreamPackage.NoPermissionHelper {
+}
+public class org.GNOME.Bonobo.StreamPackage.NotSupported {
+}
+public class org.GNOME.Bonobo.StreamPackage.NotSupportedHelper {
+}
+public class org.GNOME.Bonobo.StreamPackage.SeekType {
+}
+public class org.GNOME.Bonobo.StreamPackage.SeekTypeHelper {
+}
+public class org.GNOME.Bonobo.StreamPackage.iobufHelper {
+}
+public class org.GNOME.Bonobo.StreamPackage.iobufHolder {
+}

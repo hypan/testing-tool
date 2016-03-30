@@ -1,0 +1,24 @@
+[LOG] run: /usr/local/cov-analysis-linux64-8.0.0/bin/cov-format-errors --dir /home/h32pan/sa_output/intermediate_r2 --json-output-v4 /home/h32pan/sa_output/intermediate_r2/output/cov-blame/errors.json --outputdir /home/h32pan/sa_output/intermediate_r2/output
+[LOG] /usr/local/cov-analysis-linux64-8.0.0/bin/cov-format-errors exits successfully.
+[INFO] Computing likely owner for 10200 [c1290e6c927b8f4277268e9c5fbed63a]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10200 [c1290e6c927b8f4277268e9c5fbed63a]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10200 [c1290e6c927b8f4277268e9c5fbed63a]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10201 [153c28460abe7b2bc6f66a0e5f5eaedf]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10201 [153c28460abe7b2bc6f66a0e5f5eaedf]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10201 [153c28460abe7b2bc6f66a0e5f5eaedf]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10199 [f79e1a550572e8e124d56741f16c88de]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10198 [f29721c0d0a375090b2cc575a60626fb]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10197 [0eefa883b33ab83c4e97e4e978f6f818]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10197 [0eefa883b33ab83c4e97e4e978f6f818]:
+[INFO] 	default_component_owner: none
+[INFO] Computing likely owner for 10202 [dd92eec547676b365be86df62300f61f]:
+[INFO] 	default_component_owner: none

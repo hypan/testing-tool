@@ -1,0 +1,248 @@
+{
+  "header" : {
+    "format" : "commit preview report",
+    "version" : 2
+  },
+  "analysisInfo" : {
+    "ownerAssignmentRule" : "default_component_owner",
+    "comparisonSnapshotId" : null,
+    "reportTimestamp" : "2016-03-27T19:59:14.047Z",
+    "user" : "admin",
+    "command" : "/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --dir /home/h32pan/sa_output/intermediate_r2"
+  },
+  "issueInfo" : [ {
+    "cid" : 10197,
+    "mergeKey" : "0eefa883b33ab83c4e97e4e978f6f818",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-27T19:37:43.041Z",
+    "occurrences" : [ {
+      "checker" : "NULL_RETURNS",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "test.saveGraph(java.lang.String)",
+      "extra" : "getFuncName",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 86,
+      "mainEventDescription" : "Calling a method on null object \"currentCaller\".",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    }, {
+      "checker" : "NULL_RETURNS",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "test.saveGraph(java.lang.String)",
+      "extra" : "getFuncName",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 95,
+      "mainEventDescription" : "Calling a method on null object \"currentCallee\".",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10198,
+    "mergeKey" : "f29721c0d0a375090b2cc575a60626fb",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-27T19:37:43.041Z",
+    "occurrences" : [ {
+      "checker" : "RESOURCE_LEAK",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "test.readFileByLines()",
+      "extra" : "FileReader",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "exceptional_path",
+      "mainEventLineNumber" : 69,
+      "mainEventDescription" : "Variable \"reader\" going out of scope leaks the resource it refers to.",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10199,
+    "mergeKey" : "f79e1a550572e8e124d56741f16c88de",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-27T19:37:43.041Z",
+    "occurrences" : [ {
+      "checker" : "FB.DM_DEFAULT_ENCODING",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "test.readFileByLines()",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 68,
+      "mainEventDescription" : "Found reliance on default encoding: new java.io.FileReader(String).",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10200,
+    "mergeKey" : "c1290e6c927b8f4277268e9c5fbed63a",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-27T19:37:43.041Z",
+    "occurrences" : [ {
+      "checker" : "FB.SS_SHOULD_BE_STATIC",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "unknown",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 21,
+      "mainEventDescription" : "Unread field: test.call_gra; should this field be static?",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    }, {
+      "checker" : "FB.SS_SHOULD_BE_STATIC",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "unknown",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 22,
+      "mainEventDescription" : "Unread field: test.callee_start; should this field be static?",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    }, {
+      "checker" : "FB.SS_SHOULD_BE_STATIC",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "unknown",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 23,
+      "mainEventDescription" : "Unread field: test.null_func; should this field be static?",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10201,
+    "mergeKey" : "153c28460abe7b2bc6f66a0e5f5eaedf",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-27T19:37:43.041Z",
+    "occurrences" : [ {
+      "checker" : "FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "unknown",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 32,
+      "mainEventDescription" : "Unread public/protected field: test.ps.",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    }, {
+      "checker" : "FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "unknown",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 34,
+      "mainEventDescription" : "Unread public/protected field: test.small.",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    }, {
+      "checker" : "FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "unknown",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 35,
+      "mainEventDescription" : "Unread public/protected field: test.large.",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  }, {
+    "cid" : 10202,
+    "mergeKey" : "dd92eec547676b365be86df62300f61f",
+    "presentInComparisonSnapshot" : false,
+    "firstDetectedDateTime" : "2016-03-27T19:37:43.041Z",
+    "occurrences" : [ {
+      "checker" : "FB.VA_FORMAT_STRING_USES_NEWLINE",
+      "file" : "/home/h32pan/sa_output/intermediate_r2/test.java",
+      "function" : "test.findBugs(Node, Pair, int)",
+      "extra" : "",
+      "mergeWithLowercaseFile" : false,
+      "subcategory" : "none",
+      "mainEventLineNumber" : 205,
+      "mainEventDescription" : "Format string should use %n rather than \\n.",
+      "componentName" : "Other",
+      "componentDefaultOwner" : null,
+      "componentDefaultOwnerLdapServer" : null
+    } ],
+    "triage" : {
+      "severity" : "Unspecified",
+      "owner" : null,
+      "externalReference" : null,
+      "legacy" : "False",
+      "fixTarget" : "Untargeted",
+      "action" : "Undecided",
+      "classification" : "Unclassified"
+    },
+    "customTriage" : { },
+    "ownerLdapServerName" : null
+  } ]
+}

@@ -1,0 +1,19 @@
+/usr/local/cov-analysis-linux64-8.0.0/bin/cov-analyze --dir /home/h32pan/sa_output/intermediate_r2 
+
+FindBugs time: 00:00:03
+Analysis summary report:
+------------------------
+Files analyzed                 : 1
+Total LoC input to cov-analyze : 251
+Functions analyzed             : 32
+Paths analyzed                 : 503
+Time taken by analysis         : 00:00:31
+Defect occurrences found       : 3 Total
+                                 2 NULL_RETURNS
+                                 1 RESOURCE_LEAK
+FindBugs Checkers: 8 errors
+                  FB.DM_DEFAULT_ENCODING           1
+                  FB.SS_SHOULD_BE_STATIC           3
+ FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD           3
+        FB.VA_FORMAT_STRING_USES_NEWLINE           1
+Additional defects, FindBugs   : 8

@@ -1,0 +1,138 @@
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>NULL_RETURNS</checker>
+<template>null_returns_multievent_v1</template>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>test.saveGraph(java.lang.String)</function>
+<score>100</score>
+<ordered>true</ordered>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{graphLine.trim().startsWith(call_gra)}}}}}}</description>
+<line>82</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{!graphLine.contains(null_func)}}}}}}</description>
+<line>83</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>returned_null</tag>
+<description>{CovLStrv2{{t{{0} returns null (checked {1} out of {2} times).}{{code{getFuncName}}}{0}{2}}}}</description>
+<line>85</line>
+<model_ptr>
+<module>module</module>
+<property>prop</property>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>test.getFuncName(java.lang.String)</function>
+<key>c51f82b706a2066c9575dcec4e17f221</key>
+<id>1</id>
+</model_ptr>
+</event>
+<event>
+<tag>var_assigned</tag>
+<description>{CovLStrv2{{t{Assigning: {0} = null return value from {1}.}{{code{currentCaller}}}{{code{getFuncName}}}}}}</description>
+<line>85</line>
+</event>
+<event>
+<main>true</main>
+<tag>null_method_call</tag>
+<description>{CovLStrv2{{t{Calling a method on null object {0}.}{{code{currentCaller}}}}}}</description>
+<line>86</line>
+</event>
+<extra>getFuncName</extra>
+<subcategory>none</subcategory>
+<typePropertiesGroup>
+<category>Null pointer dereferences</category>
+<impact>Medium</impact>
+<type>Dereference null return value</type>
+<cwe>476</cwe>
+<localEffect>If the function actually returns a null value, a NullPointerException will be thrown.</localEffect>
+<longDescription>Return value of function which returns null is dereferenced without checking</longDescription>
+<qualityKind>true</qualityKind>
+<eventSetCaptions>
+<eventSetCaption>Call to null-returning function</eventSetCaption>
+<eventSetCaption>Examples where return value was checked for null</eventSetCaption>
+</eventSetCaptions>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>NULL_RETURNS</checker>
+<template>null_returns_multievent_v1</template>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>test.saveGraph(java.lang.String)</function>
+<score>100</score>
+<ordered>true</ordered>
+<event>
+<tag>cond_false</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking false branch}{{code{graphLine.trim().startsWith(call_gra)}}}}}}</description>
+<line>82</line>
+<path_event>
+<jump>true</jump>
+</path_event>
+</event>
+<event>
+<tag>else_branch</tag>
+<description>{CovLStrv2{{t{Reached else branch}}}}</description>
+<line>91</line>
+<path_event>
+<suppressible>true</suppressible>
+</path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{nullFunc}}}}}}</description>
+<line>91</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>cond_true</tag>
+<description>{CovLStrv2{{t{Condition {0}, taking true branch}{{code{graphLine.contains(callee_start)}}}}}}</description>
+<line>91</line>
+<path_event></path_event>
+</event>
+<event>
+<tag>returned_null</tag>
+<description>{CovLStrv2{{t{{0} returns null (checked {1} out of {2} times).}{{code{getFuncName}}}{0}{2}}}}</description>
+<line>94</line>
+<model_ptr>
+<module>module</module>
+<property>prop</property>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>test.getFuncName(java.lang.String)</function>
+<key>c51f82b706a2066c9575dcec4e17f221</key>
+<id>1</id>
+</model_ptr>
+</event>
+<event>
+<tag>var_assigned</tag>
+<description>{CovLStrv2{{t{Assigning: {0} = null return value from {1}.}{{code{currentCallee}}}{{code{getFuncName}}}}}}</description>
+<line>94</line>
+</event>
+<event>
+<main>true</main>
+<tag>null_method_call</tag>
+<description>{CovLStrv2{{t{Calling a method on null object {0}.}{{code{currentCallee}}}}}}</description>
+<line>95</line>
+</event>
+<extra>getFuncName</extra>
+<subcategory>none</subcategory>
+<typePropertiesGroup>
+<category>Null pointer dereferences</category>
+<impact>Medium</impact>
+<type>Dereference null return value</type>
+<cwe>476</cwe>
+<localEffect>If the function actually returns a null value, a NullPointerException will be thrown.</localEffect>
+<longDescription>Return value of function which returns null is dereferenced without checking</longDescription>
+<qualityKind>true</qualityKind>
+<eventSetCaptions>
+<eventSetCaption>Call to null-returning function</eventSetCaption>
+<eventSetCaption>Examples where return value was checked for null</eventSetCaption>
+</eventSetCaptions>
+</typePropertiesGroup>
+</error>

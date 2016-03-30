@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.0-dev-20140429-1103397" sequence="0" timestamp="1459108631000" analysisTimestamp="1459108633361" release="">
+  <Project projectName="coverityEmit">
+    <Jar>/home/h32pan/sa_output/intermediate_r2/output/java-private/coverity_ac.jar</Jar>
+    <AuxClasspathEntry>/home/h32pan/sa_output/intermediate_r2/output/java-private/coverity_cp_n_jars.jar</AuxClasspathEntry>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N" instanceHash="f6099e6a92d7d60be8d0e937e4bb4b10" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="19">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Found reliance on default encoding: -[0]-.]--[new java.io.FileReader(String)]-]-</LongMessage>
+    <Class classname="test" primary="true">
+      <SourceLine classname="test" start="14" end="217" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[test]-]-</Message>
+    </Class>
+    <Method classname="test" name="readFileByLines" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="test" start="65" end="76" startBytecode="0" endBytecode="197" sourcefile="test.java" sourcepath="test.java"/>
+      <Message>-[CovLStr-[v1]--[In method -[0]-]--[test.readFileByLines()]-]-</Message>
+    </Method>
+    <Method classname="java.io.FileReader" name="&lt;init&gt;" signature="(Ljava/lang/String;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.FileReader" start="58" end="59" startBytecode="0" endBytecode="68" sourcefile="FileReader.java" sourcepath="java/io/FileReader.java"/>
+      <Message>-[CovLStr-[v1]--[Called method -[0]-]--[new java.io.FileReader(String)]-]-</Message>
+    </Method>
+    <SourceLine classname="test" primary="true" start="68" end="68" startBytecode="14" endBytecode="14" sourcefile="test.java" sourcepath="test.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" instanceHash="4a365ecde7d0343ce9b3cfb327b40f67" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="18">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Unread field: -[0]-; should this field be static?]--[test.call_gra]-]-</LongMessage>
+    <Class classname="test" primary="true">
+      <SourceLine classname="test" start="14" end="217" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[test]-]-</Message>
+    </Class>
+    <Field classname="test" name="call_gra" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="test" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[In this file]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[Field -[0]-]--[test.call_gra]-]-</Message>
+    </Field>
+    <SourceLine classname="test" primary="true" start="21" end="21" startBytecode="17" endBytecode="17" sourcefile="test.java" sourcepath="test.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" instanceHash="8594d8f1a61fff40540ffc0ded4f3dd5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="18">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Unread field: -[0]-; should this field be static?]--[test.callee_start]-]-</LongMessage>
+    <Class classname="test" primary="true">
+      <SourceLine classname="test" start="14" end="217" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[test]-]-</Message>
+    </Class>
+    <Field classname="test" name="callee_start" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="test" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[In this file]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[Field -[0]-]--[test.callee_start]-]-</Message>
+    </Field>
+    <SourceLine classname="test" primary="true" start="22" end="22" startBytecode="23" endBytecode="23" sourcefile="test.java" sourcepath="test.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" abbrev="SS" category="PERFORMANCE" instanceHash="e40d0b9c802939a3b02f65396b56e3f7" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="18">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Unread field: -[0]-; should this field be static?]--[test.null_func]-]-</LongMessage>
+    <Class classname="test" primary="true">
+      <SourceLine classname="test" start="14" end="217" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[test]-]-</Message>
+    </Class>
+    <Field classname="test" name="null_func" signature="Ljava/lang/String;" isStatic="false" primary="true">
+      <SourceLine classname="test" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[In this file]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[Field -[0]-]--[test.null_func]-]-</Message>
+    </Field>
+    <SourceLine classname="test" primary="true" start="23" end="23" startBytecode="29" endBytecode="29" sourcefile="test.java" sourcepath="test.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" instanceHash="b49e32b7ff110af8801bb0d43dc142c5" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="18">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Unread public/protected field: -[0]-.]--[test.large]-]-</LongMessage>
+    <Class classname="test" primary="true">
+      <SourceLine classname="test" start="14" end="217" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[test]-]-</Message>
+    </Class>
+    <Field classname="test" name="large" signature="LNode;" isStatic="false" primary="true">
+      <SourceLine classname="test" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[In this file]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[Field -[0]-]--[test.large]-]-</Message>
+    </Field>
+    <SourceLine classname="test" primary="true" start="35" end="35" startBytecode="104" endBytecode="104" sourcefile="test.java" sourcepath="test.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" instanceHash="503450c61f7c38dfe8e622c8b4b3e3ff" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="18">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Unread public/protected field: -[0]-.]--[test.ps]-]-</LongMessage>
+    <Class classname="test" primary="true">
+      <SourceLine classname="test" start="14" end="217" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[test]-]-</Message>
+    </Class>
+    <Field classname="test" name="ps" signature="LPair;" isStatic="false" primary="true">
+      <SourceLine classname="test" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[In this file]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[Field -[0]-]--[test.ps]-]-</Message>
+    </Field>
+    <SourceLine classname="test" primary="true" start="32" end="32" startBytecode="89" endBytecode="89" sourcefile="test.java" sourcepath="test.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE" instanceHash="9ba365d7ecebcfa2f5f4ab2b2495d2e2" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="18">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Unread public/protected field: -[0]-.]--[test.small]-]-</LongMessage>
+    <Class classname="test" primary="true">
+      <SourceLine classname="test" start="14" end="217" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[test]-]-</Message>
+    </Class>
+    <Field classname="test" name="small" signature="LNode;" isStatic="false" primary="true">
+      <SourceLine classname="test" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[In this file]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[Field -[0]-]--[test.small]-]-</Message>
+    </Field>
+    <SourceLine classname="test" primary="true" start="34" end="34" startBytecode="99" endBytecode="99" sourcefile="test.java" sourcepath="test.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="VA_FORMAT_STRING_USES_NEWLINE" priority="2" abbrev="FS" category="BAD_PRACTICE" instanceHash="38906737b4fdf41e1e39d436b9916c15" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="20">
+    <ShortMessage></ShortMessage>
+    <LongMessage>-[CovLStr-[v1]--[Format string should use %n rather than \n.]-]-</LongMessage>
+    <Class classname="test" primary="true">
+      <SourceLine classname="test" start="14" end="217" sourcefile="test.java" sourcepath="test.java">
+        <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+      </SourceLine>
+      <Message>-[CovLStr-[v1]--[In class -[0]-]--[test]-]-</Message>
+    </Class>
+    <Method classname="test" name="findBugs" signature="(LNode;LPair;I)V" isStatic="false" primary="true">
+      <SourceLine classname="test" start="186" end="217" startBytecode="0" endBytecode="602" sourcefile="test.java" sourcepath="test.java"/>
+      <Message>-[CovLStr-[v1]--[In method -[0]-]--[test.findBugs(Node, Pair, int)]-]-</Message>
+    </Method>
+    <Method classname="java.io.PrintStream" name="format" signature="(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintStream" start="965" end="977" startBytecode="0" endBytecode="278" sourcefile="PrintStream.java" sourcepath="java/io/PrintStream.java"/>
+      <Message>-[CovLStr-[v1]--[Called method -[0]-]--[java.io.PrintStream.format(String, Object[])]-]-</Message>
+    </Method>
+    <String value="bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n" role="STRING_FORMAT_STRING">
+      <Message>-[CovLStr-[v1]--[Format string &quot;-[0]-&quot;]--[bug: %s in %s, pair: (%s, %s), support: %d, confidence: %.2f%%\n]-]-</Message>
+    </String>
+    <SourceLine classname="test" primary="true" start="205" end="205" startBytecode="221" endBytecode="221" sourcefile="test.java" sourcepath="test.java">
+      <Message>-[CovLStr-[v1]--[Here]-]-</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="BAD_PRACTICE">
+    <Description>Bad practice</Description>
+  </BugCategory>
+  <BugCategory category="PERFORMANCE">
+    <Description>Performance</Description>
+  </BugCategory>
+  <BugCategory category="STYLE">
+    <Description>Dodgy code</Description>
+  </BugCategory>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" abbrev="UrF" category="STYLE">
+    <ShortDescription></ShortDescription>
+    <Details><![CDATA[]]></Details>
+  </BugPattern>
+  <BugPattern type="VA_FORMAT_STRING_USES_NEWLINE" abbrev="FS" category="BAD_PRACTICE">
+    <ShortDescription></ShortDescription>
+    <Details><![CDATA[]]></Details>
+  </BugPattern>
+  <BugPattern type="SS_SHOULD_BE_STATIC" abbrev="SS" category="PERFORMANCE">
+    <ShortDescription></ShortDescription>
+    <Details><![CDATA[]]></Details>
+  </BugPattern>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N">
+    <ShortDescription></ShortDescription>
+    <Details><![CDATA[]]></Details>
+  </BugPattern>
+  <BugCode abbrev="SS">
+    <Description>Unread field should be static</Description>
+  </BugCode>
+  <BugCode abbrev="UrF">
+    <Description>Unread field</Description>
+  </BugCode>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <BugCode abbrev="FS">
+    <Description>Format string problem</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sun, 27 Mar 2016 15:57:11 -0400" total_classes="3" referenced_classes="26" total_bugs="8" total_size="211" num_packages="1" java_version="1.8.0_45" vm_version="25.45-b02" cpu_seconds="6.95" clock_seconds="1.54" peak_mbytes="303.57" alloc_mbytes="981.50" gc_seconds="0.01" priority_2="7" priority_1="1">
+    <FileStats path="test.java" bugCount="8" size="211" bugHash="4787785b8bcc1d119784cac731e82c11"/>
+    <PackageStats package="" total_bugs="8" total_types="3" total_size="211" priority_2="7" priority_1="1">
+      <ClassStats class="Node" sourceFile="test.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="Pair" sourceFile="test.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="test" sourceFile="test.java" interface="false" size="159" bugs="8" priority_2="7" priority_1="1"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="227" invocations="420" avgMicrosecondsPerInvocation="540" maxMicrosecondsPerInvocation="15375" standardDeviationMircosecondsPerInvocation="1386"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="73" invocations="26" avgMicrosecondsPerInvocation="2833" maxMicrosecondsPerInvocation="20341" standardDeviationMircosecondsPerInvocation="4500"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="72" invocations="148" avgMicrosecondsPerInvocation="489" maxMicrosecondsPerInvocation="4784" standardDeviationMircosecondsPerInvocation="617"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="44" invocations="387" avgMicrosecondsPerInvocation="115" maxMicrosecondsPerInvocation="2495" standardDeviationMircosecondsPerInvocation="288"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="43" invocations="30" avgMicrosecondsPerInvocation="1453" maxMicrosecondsPerInvocation="10300" standardDeviationMircosecondsPerInvocation="2119"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="43" invocations="29" avgMicrosecondsPerInvocation="1484" maxMicrosecondsPerInvocation="10510" standardDeviationMircosecondsPerInvocation="2017"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="39" invocations="32" avgMicrosecondsPerInvocation="1225" maxMicrosecondsPerInvocation="8684" standardDeviationMircosecondsPerInvocation="1637"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="38" invocations="29" avgMicrosecondsPerInvocation="1336" maxMicrosecondsPerInvocation="29521" standardDeviationMircosecondsPerInvocation="5334"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="36" invocations="29" avgMicrosecondsPerInvocation="1270" maxMicrosecondsPerInvocation="9852" standardDeviationMircosecondsPerInvocation="1789"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="34" invocations="32" avgMicrosecondsPerInvocation="1072" maxMicrosecondsPerInvocation="15615" standardDeviationMircosecondsPerInvocation="2735"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="31" invocations="29" avgMicrosecondsPerInvocation="1071" maxMicrosecondsPerInvocation="9530" standardDeviationMircosecondsPerInvocation="1706"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="29" invocations="26" avgMicrosecondsPerInvocation="1144" maxMicrosecondsPerInvocation="8268" standardDeviationMircosecondsPerInvocation="1785"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="27" invocations="29" avgMicrosecondsPerInvocation="939" maxMicrosecondsPerInvocation="5028" standardDeviationMircosecondsPerInvocation="942"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="23" invocations="3" avgMicrosecondsPerInvocation="7747" maxMicrosecondsPerInvocation="23133" standardDeviationMircosecondsPerInvocation="10879"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="23" invocations="26" avgMicrosecondsPerInvocation="888" maxMicrosecondsPerInvocation="5821" standardDeviationMircosecondsPerInvocation="1518"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="21" invocations="26" avgMicrosecondsPerInvocation="838" maxMicrosecondsPerInvocation="10176" standardDeviationMircosecondsPerInvocation="2010"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="16" invocations="20" avgMicrosecondsPerInvocation="849" maxMicrosecondsPerInvocation="3600" standardDeviationMircosecondsPerInvocation="744"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="16" invocations="26" avgMicrosecondsPerInvocation="652" maxMicrosecondsPerInvocation="4636" standardDeviationMircosecondsPerInvocation="1036"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="14" invocations="26" avgMicrosecondsPerInvocation="571" maxMicrosecondsPerInvocation="2932" standardDeviationMircosecondsPerInvocation="732"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="12" invocations="29" avgMicrosecondsPerInvocation="447" maxMicrosecondsPerInvocation="3001" standardDeviationMircosecondsPerInvocation="569"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="12" invocations="421" avgMicrosecondsPerInvocation="30" maxMicrosecondsPerInvocation="594" standardDeviationMircosecondsPerInvocation="32"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

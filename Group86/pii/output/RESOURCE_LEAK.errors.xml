@@ -1,0 +1,51 @@
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>RESOURCE_LEAK</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>test.readFileByLines()</function>
+<score>100</score>
+<ordered>true</ordered>
+<event>
+<tag>new_resource</tag>
+<description>{CovLStrv2{{t{{0} creates a new resource.}{{code{new java.io.FileReader(callgraph)}}}}}}</description>
+<line>68</line>
+</event>
+<event>
+<tag>var_assign</tag>
+<description>{CovLStrv2{{t{Assigning: {0} = resource returned from {1}.}{{code{reader}}}{{code{new java.io.BufferedReader(new java.io.FileReader(callgraph))}}}}}}</description>
+<line>68</line>
+</event>
+<event>
+<tag>noescape</tag>
+<description>{CovLStrv2{{t{Resource {0} is not closed or saved in {1}.}{{code{reader}}}{{code{readLine}}}}}}</description>
+<line>69</line>
+</event>
+<event>
+<tag>throw</tag>
+<description>{CovLStrv2{{t{Throwing {0} (or subclass) from call to {1}.}{{code{java.io.IOException}}}{{code{readLine}}}}}}</description>
+<line>69</line>
+<path_event>
+<jump>true</jump>
+<exception>true</exception>
+</path_event>
+</event>
+<event>
+<main>true</main>
+<tag>leaked_resource</tag>
+<description>{CovLStrv2{{t{Variable {0} going out of scope leaks the resource it refers to.}{{code{reader}}}}}}</description>
+<line>69</line>
+</event>
+<extra>FileReader</extra>
+<subcategory>exceptional_path</subcategory>
+<typePropertiesGroup>
+<category>Exceptional resource leaks</category>
+<impact>Low</impact>
+<type>Resource leak on an exceptional path</type>
+<cwe>404</cwe>
+<localEffect>The system resource will not be reclaimed and reused, reducing the future availability of the resource.</localEffect>
+<longDescription>Leak of a system resource on an exception path (probably error handling)</longDescription>
+<qualityKind>true</qualityKind>
+<securityKind>true</securityKind>
+</typePropertiesGroup>
+</error>

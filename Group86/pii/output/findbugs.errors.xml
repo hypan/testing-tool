@@ -1,0 +1,240 @@
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.DM_DEFAULT_ENCODING</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>test.readFileByLines()</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Found reliance on default encoding: {0}.}{new java.io.FileReader(String)}}</description>
+<line>68</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>High</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Internationalization</category>
+<impact>Low</impact>
+<type>Dm: Dubious method used</type>
+<localEffect></localEffect>
+<longDescription>Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.DM_DEFAULT_ENCODING&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.SS_SHOULD_BE_STATIC</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>unknown</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Unread field: {0}; should this field be static?}{test.call_gra}}</description>
+<line>21</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Performance</category>
+<impact>Low</impact>
+<type>SS: Unread field should be static</type>
+<localEffect></localEffect>
+<longDescription>This class contains an instance final field that is initialized to a compile-time static value. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.SS_SHOULD_BE_STATIC&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.SS_SHOULD_BE_STATIC</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>unknown</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Unread field: {0}; should this field be static?}{test.callee_start}}</description>
+<line>22</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Performance</category>
+<impact>Low</impact>
+<type>SS: Unread field should be static</type>
+<localEffect></localEffect>
+<longDescription>This class contains an instance final field that is initialized to a compile-time static value. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.SS_SHOULD_BE_STATIC&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.SS_SHOULD_BE_STATIC</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>unknown</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Unread field: {0}; should this field be static?}{test.null_func}}</description>
+<line>23</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Performance</category>
+<impact>Low</impact>
+<type>SS: Unread field should be static</type>
+<localEffect></localEffect>
+<longDescription>This class contains an instance final field that is initialized to a compile-time static value. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.SS_SHOULD_BE_STATIC&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>unknown</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Unread public/protected field: {0}.}{test.ps}}</description>
+<line>32</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Dodgy code</category>
+<impact>Low</impact>
+<type>UrF: Unread field</type>
+<localEffect></localEffect>
+<longDescription>This field is never read. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>unknown</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Unread public/protected field: {0}.}{test.small}}</description>
+<line>34</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Dodgy code</category>
+<impact>Low</impact>
+<type>UrF: Unread field</type>
+<localEffect></localEffect>
+<longDescription>This field is never read. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>unknown</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Unread public/protected field: {0}.}{test.large}}</description>
+<line>35</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Dodgy code</category>
+<impact>Low</impact>
+<type>UrF: Unread field</type>
+<localEffect></localEffect>
+<longDescription>This field is never read. (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
+<error>
+<domain>STATIC_JAVA</domain>
+<lang>Java</lang>
+<checker>FB.VA_FORMAT_STRING_USES_NEWLINE</checker>
+<file>/home/h32pan/sa_output/intermediate_r2/test.java</file>
+<function>test.findBugs(Node, Pair, int)</function>
+<ordered>true</ordered>
+<event>
+<main>true</main>
+<tag>defect</tag>
+<description>{CovLStr{v1}{Format string should use %n rather than \n.}}</description>
+<line>205</line>
+</event>
+<extra></extra>
+<subcategory>none</subcategory>
+<properties>
+<property>
+<key>fb.priority</key>
+<value>Medium</value>
+</property>
+</properties>
+<typePropertiesGroup>
+<category>FindBugs: Bad practice</category>
+<impact>Low</impact>
+<type>FS: Format string problem</type>
+<localEffect></localEffect>
+<longDescription>This format string include a newline character (\n). (&lt;a href=&quot;/docs/en/findbugs/fb_checker_ref.html#FB.VA_FORMAT_STRING_USES_NEWLINE&quot; target=&quot;_blank&quot;&gt;From FindBugs&amp;#x2122; description&lt;/a&gt;)</longDescription>
+<qualityKind>true</qualityKind>
+</typePropertiesGroup>
+</error>
